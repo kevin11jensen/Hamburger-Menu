@@ -14,6 +14,7 @@ function App() {
 
   useEffect(() => {
     TweenMax.to(app, 0, {css: {visibility: 'visible'}})
+    TweenMax.to(hamburger, 0, {css: {visibility: 'visible'}})
     tl
     .to(upper, 0.5, {attr: {d: 'M8,2 L2,8'}, x: 1, ease:Power2.easeInOut}, 'start')
     .to(middle, 0.5, {autoAlpha: 0}, 'start')
@@ -21,11 +22,6 @@ function App() {
     
   }, [])
 
-  
-    
-    // document.querySelector('.hamburger').addEventListener('click', function(){
-    //   tl.reversed() ? tl.play() : tl.reverse();
-    // })
     function handleClick() {
       tl.reversed() ? tl.play() : tl.reverse();
     }
