@@ -5,6 +5,7 @@ import './App.css';
 
 function App() {
 
+
   const tl = new TimelineLite({paused: true, reversed: true});
   let app = useRef(null);
   let hamburger = useRef(null);
@@ -19,15 +20,16 @@ function App() {
     tl
     .to(upper, 0.5, {attr: {d: 'M8,2 L2,8'}, x: 1, ease:Power2.easeInOut}, 'start')
     .to(middle, 0.5, {autoAlpha: 0}, 'start')
-    .to(lower, 0.5, {attr: {d: 'M8,8 L2,2'}, x: 1, ease:Power2.easeInOut}, 'start');
-    
-
+    .to(lower, 0.5, {attr: {d: 'M8,8 L2,2'}, x: 1, ease:Power2.easeInOut}, 'start')
+    .to(menu, 0.5, {css: {visibility: 'visible'}});
   }, [])
 
     function handleClick() {
+      
       tl.reversed() ? tl.play() : tl.reverse();
-      tl.to(menu, 0.6, {css: {visibility: 'visible'}})
+      
     }
+    
 
   return (
     <div className = 'App' ref = {el => app = el}>
@@ -38,6 +40,7 @@ function App() {
       height = '100px' 
       width = '120px'
       onClick = {handleClick}
+      
       >
       
         <path 
@@ -68,15 +71,15 @@ function App() {
     </svg>
 
     <StyledNav
-    ref = {el => menu = el}
-    style = {{visibility: 'hidden'}}
-    >
-      <li>Services</li>
-      <li>About</li>
-      <li>FAQ</li>
-      <li>Blog</li>
-      <li>Contact</li>
-    </StyledNav>  
+      ref = {el => menu = el}
+      style = {{visibility: 'hidden'}}
+      >
+        <li>Services</li>
+        <li>About</li>
+        <li>FAQ</li>
+        <li>Blog</li>
+        <li>Contact</li>
+    </StyledNav>
 
     </div>
   );
