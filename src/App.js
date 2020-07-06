@@ -21,11 +21,12 @@ function App() {
     .to(middle, 0.5, {autoAlpha: 0}, 'start')
     .to(lower, 0.5, {attr: {d: 'M8,8 L2,2'}, x: 1, ease:Power2.easeInOut}, 'start');
     
+
   }, [])
 
     function handleClick() {
       tl.reversed() ? tl.play() : tl.reverse();
-      
+      tl.to(menu, 0.6, {css: {visibility: 'visible'}})
     }
 
   return (
@@ -62,19 +63,21 @@ function App() {
         style = {{
           fill: 'none', 
           stroke: '#474747', strokeLinecap: 'round'}}
-        />   
+        /> 
+        
     </svg>
 
     <StyledNav
     ref = {el => menu = el}
+    style = {{visibility: 'hidden'}}
     >
       <li>Services</li>
       <li>About</li>
       <li>FAQ</li>
       <li>Blog</li>
       <li>Contact</li>
-    </StyledNav>
-    
+    </StyledNav>  
+
     </div>
   );
 }
