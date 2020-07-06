@@ -11,6 +11,7 @@ function App() {
   let upper = useRef(null);
   let middle = useRef(null);
   let lower = useRef(null);
+  let menu = useRef(null);
 
   useEffect(() => {
     TweenMax.to(app, 0, {css: {visibility: 'visible'}})
@@ -24,6 +25,7 @@ function App() {
 
     function handleClick() {
       tl.reversed() ? tl.play() : tl.reverse();
+      
     }
 
   return (
@@ -62,12 +64,25 @@ function App() {
           stroke: '#474747', strokeLinecap: 'round'}}
         />   
     </svg>
+
+    <StyledNav
+    ref = {el => menu = el}
+    >
+      <li>Services</li>
+      <li>About</li>
+      <li>FAQ</li>
+      <li>Blog</li>
+      <li>Contact</li>
+    </StyledNav>
+    
     </div>
   );
 }
 
 export default App;
 
-// document.querySelector('.hamburger').addEventListener('click', function(){
-//   tl.reversed() ? tl.play() : tl.reverse();
-// })
+const StyledNav = styled.nav `
+  width: 100%;
+  background-color: black;
+  color: white;
+`
